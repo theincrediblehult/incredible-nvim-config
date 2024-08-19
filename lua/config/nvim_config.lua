@@ -8,7 +8,6 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
--- vim.opt.colorcolumn = "80"
 vim.opt.updatetime = 50
 
 -- undodir stuff
@@ -28,23 +27,3 @@ vim.opt.expandtab = true
 
 -- theming
 vim.cmd 'colorscheme tokyonight-night'
-
--- set cindent if buffer is c, cpp, or java
--- cintent will override smartindent
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'c,cpp,h,hpp,java',
-  callback = function()
-    vim.opt_local.cindent = true
-  end,
-})
-
--- highlight on yank
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
-

@@ -31,11 +31,22 @@ vim.keymap.set('n', 'Q', '<nop>')
 -- vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 
 -- telescope
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, {})
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, {})
-vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, {})
-vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').buffers, {})
-vim.keymap.set('n', '<leader>ss', require('telescope.builtin').symbols, {})
+vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>/', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer' })
+
+vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 -- fugitive
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, {})
@@ -53,7 +64,7 @@ vim.keymap.set('n', '<leader>xQ', '<cmd>Trouble qflist toggle<cr>')
 
 -- lsp_attach is where you enable features that only work
 -- if there is a language server active in the file
-local function on_lsp_attach(client, bufnr) 
+local function on_lsp_attach(_, bufnr)
         local opts = {buffer = bufnr}
         vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
         vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)

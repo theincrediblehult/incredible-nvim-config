@@ -54,7 +54,10 @@ return {
 
       lsp_zero.extend_lspconfig({
         sign_text = true,
-        lsp_attach = require('../config/remap').on_lsp_attach,
+        lsp_attach = function(client, bufnr)
+            require('../config/remap').on_lsp_attach(client, bufnr)
+            require('../config/cmds').on_lsp_attach(bufnr)
+        end,
         capabilities = require('cmp_nvim_lsp').default_capabilities()
       })
 
