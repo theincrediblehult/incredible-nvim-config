@@ -2,9 +2,20 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.scrolloff = 8
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+
+-- smart case
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- highlight search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+-- enable 24-bit color
 vim.opt.termguicolors = true
 
 vim.opt.updatetime = 50
@@ -20,8 +31,8 @@ vim.opt.clipboard = 'unnamedplus'
 
 -- Indenting
 vim.opt.smartindent = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 vim.opt.expandtab = true
 
 -- theming

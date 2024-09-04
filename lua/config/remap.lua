@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- togge nvim-tree
+vim.keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<CR>")
 
 -- move selected lines in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")

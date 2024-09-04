@@ -21,7 +21,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 local format_group = vim.api.nvim_create_augroup("FormatAutogroup", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = format_group,
-    pattern = { "*.c", "*.h", "*.lua" },
+    pattern = {
+        "*.c",
+        "*.h",
+        "*.lua",
+        "*.ts",
+        "*.tsx",
+        "*.js",
+    },
     callback = function()
         vim.cmd("silent! Format")
     end,
