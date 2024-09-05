@@ -16,6 +16,8 @@ return {
         },
         view = {
           width = 100,
+          relativenumber = true,
+          number = true,
         },
         renderer = {
           group_empty = true,
