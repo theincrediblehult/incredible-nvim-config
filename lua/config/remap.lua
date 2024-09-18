@@ -25,6 +25,10 @@ vim.keymap.set('x', 'p', '"_dP')
 -- Neutralize Q
 vim.keymap.set('n', 'Q', '<nop>')
 
+-- Text TV
+-- vim.keymap.set('n', '<leader>t', function() require('incredible-nvim-texttv').show_page(vim.v.count) end)
+
+
 -- quickfix and location stuff
 -- vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
 -- vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
