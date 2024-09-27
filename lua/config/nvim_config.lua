@@ -3,8 +3,8 @@ vim.opt.number = true
 vim.opt.scrolloff = 8
 
 -- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 
 -- smart case
