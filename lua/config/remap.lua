@@ -1,8 +1,5 @@
 vim.g.mapleader = " "
 
--- togge nvim-tree
--- vim.keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<CR>")
-
 -- move selected lines in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
@@ -77,7 +74,7 @@ local function on_lsp_attach(_, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = '[G]oto [D]efinition' })
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references,
     { buffer = bufnr, desc = '[G]oto [R]eferences' })
-  vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, { buffer = bufnr, desc = '[G]oto [I]mplementation' })
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = bufnr, desc = '[G]oto [I]mplementation' })
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, { buffer = bufnr, desc = 'Type [D]efinition' })
   vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols,
     { buffer = bufnr, desc = '[D]ocument [S]ymbols' })
